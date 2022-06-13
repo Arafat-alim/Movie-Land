@@ -5,16 +5,21 @@ import searchIcon from "./searchIcon.svg";
 import MovieCard from "./MovieCard";
 
 const App = () => {
-  //creating state
+  //!creating state
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  //! API LINK
   const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=6bc9702a";
+
+  //! Function to fetch data from api
   let searchMovies = async (title) => {
     let response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
     // console.log(data.Search);
     setMovies(data.Search);
   };
+
   //movide Object
   // const movie1 = {
   //   Title: "Italian Spiderman",
@@ -24,10 +29,12 @@ const App = () => {
   //   Poster:
   //     "https://m.media-amazon.com/images/M/MV5BYjFhN2RjZTctMzA2Ni00NzE2LWJmYjMtNDAyYTllOTkyMmY3XkEyXkFqcGdeQXVyNTA0OTU0OTQ@._V1_SX300.jpg",
   // };
-  //using useEffect for api calling - component did mount
+
+  //! using useEffect for api calling - component did mount
   useEffect(() => {
     searchMovies("Spiderman");
   }, []);
+
   return (
     <div className="app">
       <h1>Movie Land</h1>
@@ -63,4 +70,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;
