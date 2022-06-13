@@ -7,6 +7,7 @@ import MovieCard from "./MovieCard";
 const App = () => {
   //creating state
   const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=6bc9702a";
   let searchMovies = async (title) => {
     let response = await fetch(`${API_URL}&s=${title}`);
@@ -34,10 +35,18 @@ const App = () => {
         <input
           type="text"
           placeholder="Search for  movies"
-          value="superman"
-          onChange={() => {}}
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
         />
-        <img src={searchIcon} alt="search" onClick={() => {}} />
+        <img
+          src={searchIcon}
+          alt="search"
+          onClick={() => {
+            searchMovies(searchTerm);
+          }}
+        />
       </div>
 
       {movies?.length > 0 ? (
