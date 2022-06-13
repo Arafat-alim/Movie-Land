@@ -36,7 +36,16 @@ const App = () => {
         />
         <img src={searchIcon} alt="search" onClick={() => {}} />
       </div>
-      <div className="container"></div>
+      <div className="container">
+        {/* <MovieCard
+          poster={movie1.Poster}
+          title={movie1.Title}
+          type={movie1.Type}
+          imdbID={movie1.imdbID}
+          year={movie1.Year}
+        /> */}
+        <MovieCard movie1={movie1} />
+      </div>
     </div>
   );
 };
