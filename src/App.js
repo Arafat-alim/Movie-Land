@@ -32,7 +32,7 @@ const App = () => {
 
   //! using useEffect for api calling - component did mount
   useEffect(() => {
-    searchMovies("Spiderman");
+    searchMovies("America");
   }, []);
 
   return (
